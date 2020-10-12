@@ -16,7 +16,7 @@ public class Main {
                 // A listener in their own class
                 .addListener(new MyListener())
                 // Alternative syntax that can be used for classes that require a DiscordApi parameter in their constructor
-                .setToken("NzYxNzIzNzAxNTY1NDU2NDQ0.X3eweg.AKYRzNGJ5x-Qv6VcnhtyEX8jyL0")
+                .setToken("Censored")
                 .setWaitForServersOnStartup(false)
                 .login()
                 .join();
