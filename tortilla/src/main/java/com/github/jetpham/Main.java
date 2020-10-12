@@ -3,13 +3,12 @@ package com.github.jetpham;
 import org.javacord.api.DiscordApi;
 import org.javacord.api.DiscordApiBuilder;
 
+//https://discord.gg/eKmFVw7
+
 public class Main {
-
     public static void main(String[] args) {
-        // Insert your bot's token here
-        String token = "your token";
+        DiscordApi api = new DiscordApiBuilder()
 
-        DiscordApi api = new DiscordApiBuilder().setToken(token).login().join();
 
                 .addServerBecomesAvailableListener(event -> {
                     System.out.println("Loaded " + event.getServer().getName());
@@ -22,8 +21,7 @@ public class Main {
                 .login()
                 .join();
 
-        // Print the invite url of your bot
-        System.out.println("You can invite the bot by using the following url: " + api.createBotInvite());
     }
-
 }
+
+
