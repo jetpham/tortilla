@@ -11,12 +11,16 @@ public class Main {
 
         DiscordApi api = new DiscordApiBuilder().setToken(token).login().join();
 
-        // Add a listener which answers with "Pong!" if someone writes "!ping"
-        api.addMessageCreateListener(event -> {
-            if (event.getMessageContent().equalsIgnoreCase("!ping")) {
-                event.getChannel().sendMessage("Pong!");
-            }
-        });
+                .addServerBecomesAvailableListener(event -> {
+                    System.out.println("Loaded " + event.getServer().getName());
+                })
+                // A listener in their own class
+                .addListener(new MyListener())
+                // Alternative syntax that can be used for classes that require a DiscordApi parameter in their constructor
+                .setToken("Censored")
+                .setWaitForServersOnStartup(false)
+                .login()
+                .join();
 
         // Print the invite url of your bot
         System.out.println("You can invite the bot by using the following url: " + api.createBotInvite());
